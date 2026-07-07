@@ -11,9 +11,24 @@ export function getApiUrl(component) {
 export function normalizeApiResponse(response) {
   if (Array.isArray(response)) return response;
   if (!response || typeof response !== 'object') return [response];
-  if (Array.isArray(response.results)) return response.results;
-  if (Array.isArray(response.data)) return response.data;
-  if (Array.isArray(response.items)) return response.items;
+
+  const collectionKeys = ['results', 'data', 'items', 'docs', 'users', 'teams', 'activities', 'leaderboard', 'workouts'];
+
+  for (const key of collectionKeys) {
+    const value = response[key];
+    if (Array.isArray(value)) return value;
+  }
+
+  if (response.data && typeof response.data === 'object') {
+    const nested = normalizeApiResponse(response.data);
+    if (nested.length > 0 || Array.isArray(response.data)) return nested;
+  }
+
+  if (response.results && typeof response.results === 'object') {
+    const nested = normalizeApiResponse(response.results);
+    if (nested.length > 0 || Array.isArray(response.results)) return nested;
+  }
+
   return [response];
 }
 
