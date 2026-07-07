@@ -1,0 +1,16 @@
+{
+  "name": "octofit-tracker-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.17.1",
+    "typescript": "^5.8.3",
+    "ts-node-dev": "^2.1.0"
+  }
+}
