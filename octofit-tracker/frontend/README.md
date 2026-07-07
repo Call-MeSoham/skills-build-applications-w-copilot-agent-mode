@@ -7,6 +7,18 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
+## Environment variables
+
+This frontend uses `import.meta.env.VITE_CODESPACE_NAME` to build the API host in `src/components/api.js`.
+
+Create a local environment file at `frontend/.env.local` with a line like:
+
+```env
+VITE_CODESPACE_NAME=your-codespace-name
+```
+
+If this value is unset, the app falls back to `http://localhost:8000` instead of creating an invalid GitHub-hosted URL.
+
 ## React Compiler
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
