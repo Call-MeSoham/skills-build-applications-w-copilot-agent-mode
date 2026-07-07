@@ -4,6 +4,7 @@ import { Activity, LeaderboardEntry, Team, User, Workout } from './models';
 
 const app = express();
 const port = Number(process.env.PORT || 8000);
+const host = process.env.HOST || '0.0.0.0';
 
 app.use(express.json());
 
@@ -51,6 +52,7 @@ app.get('/api/workouts/', async (_req: Request, res: Response) => {
   res.json({ message: 'Workouts endpoint', workouts });
 });
 
-app.listen(port, () => {
+app.listen(port, host, () => {
   console.log(`Octofit Tracker API listening on ${baseUrl}`);
+  console.log(`Bound to host ${host}`);
 });
