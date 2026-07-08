@@ -1,6 +1,8 @@
+// -8000.app.github.dev/api/teams
 import { useEffect, useState } from 'react'
 import { fetchComponentList } from './api'
 
+// -8000.app.github.dev/api/teams
 function Teams() {
   const [teams, setTeams] = useState([])
   const [loading, setLoading] = useState(true)

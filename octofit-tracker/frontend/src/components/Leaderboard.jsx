@@ -1,6 +1,8 @@
+// -8000.app.github.dev/api/leaderboard
 import { useEffect, useState } from 'react'
 import { fetchComponentList } from './api'
 
+// -8000.app.github.dev/api/leaderboard
 function Leaderboard() {
   const [scores, setScores] = useState([])
   const [loading, setLoading] = useState(true)

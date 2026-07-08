@@ -1,6 +1,8 @@
+// -8000.app.github.dev/api/workouts
 import { useEffect, useState } from 'react'
 import { fetchComponentList } from './api'
 
+// -8000.app.github.dev/api/workouts
 function Workouts() {
   const [workouts, setWorkouts] = useState([])
   const [loading, setLoading] = useState(true)
