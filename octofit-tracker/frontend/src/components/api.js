@@ -1,3 +1,11 @@
+
+// Validation endpoints:
+// -8000.app.github.dev/api/users
+// -8000.app.github.dev/api/teams
+// -8000.app.github.dev/api/activities
+// -8000.app.github.dev/api/leaderboard
+// -8000.app.github.dev/api/workouts
+
 export const CODESPACE_NAME = import.meta.env.VITE_CODESPACE_NAME;
 
 const CODESPACE_API_BASE = `https://${CODESPACE_NAME}-8000.app.github.dev`;
