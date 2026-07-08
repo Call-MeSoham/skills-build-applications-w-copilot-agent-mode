@@ -8,7 +8,6 @@
 
 export const CODESPACE_NAME = import.meta.env.VITE_CODESPACE_NAME;
 
-const CODESPACE_API_BASE = `https://${CODESPACE_NAME}-8000.app.github.dev`;
 const LOCALHOST_API_BASE = 'http://localhost:8000';
 
 const CODESPACE_USERS_ENDPOINT = `https://${CODESPACE_NAME}-8000.app.github.dev/api/users`;
