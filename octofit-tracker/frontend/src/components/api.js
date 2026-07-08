@@ -1,11 +1,29 @@
 export const CODESPACE_NAME = import.meta.env.VITE_CODESPACE_NAME;
 
-export const API_HOST = CODESPACE_NAME
-  ? `https://${CODESPACE_NAME}-8000.app.github.dev`
-  : 'http://localhost:8000';
+const CODESPACE_API_BASE = `https://${CODESPACE_NAME}-8000.app.github.dev`;
+const LOCALHOST_API_BASE = 'http://localhost:8000';
+
+const API_ENDPOINTS = {
+  users: `${CODESPACE_API_BASE}/api/users`,
+  teams: `${CODESPACE_API_BASE}/api/teams`,
+  activities: `${CODESPACE_API_BASE}/api/activities`,
+  leaderboard: `${CODESPACE_API_BASE}/api/leaderboard`,
+  workouts: `${CODESPACE_API_BASE}/api/workouts`,
+};
+
+const LOCALHOST_ENDPOINTS = {
+  users: `${LOCALHOST_API_BASE}/api/users`,
+  teams: `${LOCALHOST_API_BASE}/api/teams`,
+  activities: `${LOCALHOST_API_BASE}/api/activities`,
+  leaderboard: `${LOCALHOST_API_BASE}/api/leaderboard`,
+  workouts: `${LOCALHOST_API_BASE}/api/workouts`,
+};
 
 export function getApiUrl(component) {
-  return `${API_HOST}/api/${component}/`;
+  const endpointMap = CODESPACE_NAME ? API_ENDPOINTS : LOCALHOST_ENDPOINTS;
+  const endpoint = endpointMap[component] ?? `${LOCALHOST_API_BASE}/api/${component}`;
+
+  return `${endpoint}/`;
 }
 
 export function normalizeApiResponse(response) {
